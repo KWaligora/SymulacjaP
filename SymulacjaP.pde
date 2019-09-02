@@ -18,19 +18,15 @@ void setup() {
      .setColorCaptionLabel(color(209, 209, 209))
      ;
      
-      cp5.addBang("Start")
+      cp5.addButton("Start")
      .setPosition(760,180)
      .setSize(150,30)
-     .setFont(font)
-     .getCaptionLabel().align(ControlP5.CENTER, ControlP5.CENTER)
      ;
      
-     cp5.addBang("Reset")
-     .setPosition(760, 230)
+     cp5.addButton("Reset")
+     .setPosition(760,230)
      .setSize(150,30)
-     .setFont(font)
-     .getCaptionLabel().align(ControlP5.CENTER, ControlP5.CENTER)
-     ;  
+     ; 
      
   noStroke();
   fill(204, 204);
@@ -41,4 +37,11 @@ void draw() {
   rect(720, 0, 230, height);
   fill(color(209, 209, 209));
   textValue = cp5.get(Textfield.class,"input").getText();
+}
+
+public void controlEvent(ControlEvent theEvent) {
+  println(theEvent.getController().getName());
+}
+
+public void Start() {
 }
