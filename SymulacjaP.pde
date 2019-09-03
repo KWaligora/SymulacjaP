@@ -1,6 +1,8 @@
 import controlP5.*;
 
 ControlP5 cp5;
+Ball ball = new Ball();
+Rectangle rectangle = new Rectangle();
 
 String textValue = "";
 
@@ -8,6 +10,8 @@ void setup() {
   size(950, 750, P3D); 
   cp5 = new ControlP5(this);
   CreateFront();
+  strokeWeight(2);
+
 }
 
 void draw() {  
@@ -15,7 +19,9 @@ void draw() {
   noStroke();
   fill(color(209, 209, 209));
   rect(720, 0, 230, height);
-  DrawRectangle();
+  stroke(0);
+  ball.Draw();
+  rectangle.Draw();
 }
 
 public void controlEvent(ControlEvent theEvent) {
