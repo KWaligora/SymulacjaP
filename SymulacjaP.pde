@@ -8,16 +8,14 @@ void setup() {
   size(950, 750, P3D); 
   cp5 = new ControlP5(this);
   CreateFront();
-  
-     
-  noStroke();
-  fill(204, 204);
 }
 
 void draw() {  
   background(255);
-    rect(720, 0, 230, height);
+  noStroke();
   fill(color(209, 209, 209));
+  rect(720, 0, 230, height);
+  DrawRectangle();
 }
 
 public void controlEvent(ControlEvent theEvent) {
