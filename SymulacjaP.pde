@@ -6,11 +6,70 @@ String textValue = "";
 
 void setup() {
   size(950, 750, P3D); 
-  PFont font = createFont("arial",14);
   cp5 = new ControlP5(this);
+  CreateFront();
   
-  cp5.addTextfield("input")
+     
+  noStroke();
+  fill(204, 204);
+}
+
+void draw() {  
+  background(255);
+    rect(720, 0, 230, height);
+  fill(color(209, 209, 209));
+}
+
+public void controlEvent(ControlEvent theEvent) {
+  println(theEvent.getController().getName());
+}
+
+public void Start() {
+}
+
+public void CreateFront(){
+  PFont font = createFont("arial",14);
+  cp5.addTextlabel("Label1")
+                    .setText("Masa Pręta")
+                    .setPosition(720,30)
+                    .setColorValue(0)
+                    .setFont(font)
+                    ;
+  
+  cp5.addTextfield("MassBar")
      .setPosition(830,30)
+     .setSize(50,20)
+     .setFont(font)
+     .setColorBackground(color(255,255,255))
+     .setColor(color(0,0,0))
+     .setColorCaptionLabel(color(209, 209, 209))
+     ;
+     
+      cp5.addTextlabel("label2")
+                    .setText("Masa Kulki")
+                    .setPosition(720,80)
+                    .setColorValue(0)
+                    .setFont(font)
+                    ;   
+     
+       cp5.addTextfield("MassBall")
+     .setPosition(830,80)
+     .setSize(50,20)
+     .setFont(font)
+     .setColorBackground(color(255,255,255))
+     .setColor(color(0,0,0))
+     .setColorCaptionLabel(color(209, 209, 209))
+     ;
+     
+      cp5.addTextlabel("label3")
+                    .setText("Prędkośc kulki")
+                    .setPosition(720,130)
+                    .setColorValue(0)
+                    .setFont(font)
+                    ;
+     
+       cp5.addTextfield("SpeedBall")
+     .setPosition(830,130)
      .setSize(50,20)
      .setFont(font)
      .setColorBackground(color(255,255,255))
@@ -27,21 +86,4 @@ void setup() {
      .setPosition(760,230)
      .setSize(150,30)
      ; 
-     
-  noStroke();
-  fill(204, 204);
-}
-
-void draw() {  
-  background(255);
-  rect(720, 0, 230, height);
-  fill(color(209, 209, 209));
-  textValue = cp5.get(Textfield.class,"input").getText();
-}
-
-public void controlEvent(ControlEvent theEvent) {
-  println(theEvent.getController().getName());
-}
-
-public void Start() {
 }
