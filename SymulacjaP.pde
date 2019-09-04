@@ -1,16 +1,21 @@
 import controlP5.*;
 
 ControlP5 cp5;
-Ball ball = new Ball();
-Rectangle rectangle = new Rectangle();
+Ball ball;
+Rectangle rectangle;
 
 String textValue = "";
+int widthR;
+int heightR;
+int radius;
 
 void setup() {
   size(950, 750, P3D); 
   cp5 = new ControlP5(this);
   CreateFront();
   strokeWeight(2);
+  ball = new Ball(18);
+  rectangle = new Rectangle(200, 300);
 
 }
 
