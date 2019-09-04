@@ -21,7 +21,8 @@ void draw() {
   rect(720, 0, 230, height);
   stroke(0);
   ball.Draw();
-  rectangle.Draw();
+  ball.Move();  
+  rectangle.Draw();  
 }
 
 public void controlEvent(ControlEvent theEvent) {
