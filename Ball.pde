@@ -1,6 +1,6 @@
 class Ball{
   int Mass = 0;
-  PVector Location = new PVector(650, 485);
+  PVector Location = new PVector(650, 435);
   PVector Velocity = new PVector(-1,0);
   final int Radius;
   
@@ -8,7 +8,7 @@ class Ball{
     this.Radius = radius;
   }
   
-  public void Draw(){
+  public void draw(){
     fill(255);
     ellipse(Location.x, Location.y, Radius*2, Radius*2);
   }
@@ -16,5 +16,13 @@ class Ball{
   public void Move(){
     Location.add(Velocity);
   }
+ 
+   public PVector GetLocation(){
+     return Location;
+   }
+   
+   public void SetSpeed(){
+     Velocity = new PVector(0,0);
+   }
  
 }

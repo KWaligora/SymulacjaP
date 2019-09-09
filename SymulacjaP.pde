@@ -2,21 +2,21 @@ import controlP5.*;
 
 ControlP5 cp5;
 Ball ball;
-Rectangle rectangle;
+Box box;
 
-String textValue = "";
-int widthR;
-int heightR;
-int radius;
+int widthR = 20;
+int heightR = 300;
+int radius = 18;
 
 void setup() {
   size(950, 750, P3D); 
   cp5 = new ControlP5(this);
   CreateFront();
   strokeWeight(2);
-  ball = new Ball(18);
-  rectangle = new Rectangle(200, 300);
-
+  ball = new Ball(radius);
+  box = new Box(20, 300);
+  box.translate(300, 350);
+  box.rotate(3);
 }
 
 void draw() {  
@@ -25,75 +25,9 @@ void draw() {
   fill(color(209, 209, 209));
   rect(720, 0, 230, height);
   stroke(0);
-  ball.Draw();
-  ball.Move();  
-  rectangle.Draw();  
-}
-
-public void controlEvent(ControlEvent theEvent) {
-  println(theEvent.getController().getName());
-}
-
-public void Start() {
-}
-
-public void CreateFront(){
-  PFont font = createFont("arial",14);
-  cp5.addTextlabel("Label1")
-                    .setText("Masa Pręta")
-                    .setPosition(720,30)
-                    .setColorValue(0)
-                    .setFont(font)
-                    ;
-  
-  cp5.addTextfield("MassBar")
-     .setPosition(830,30)
-     .setSize(50,20)
-     .setFont(font)
-     .setColorBackground(color(255,255,255))
-     .setColor(color(0,0,0))
-     .setColorCaptionLabel(color(209, 209, 209))
-     ;
-     
-      cp5.addTextlabel("label2")
-                    .setText("Masa Kulki")
-                    .setPosition(720,80)
-                    .setColorValue(0)
-                    .setFont(font)
-                    ;   
-     
-       cp5.addTextfield("MassBall")
-     .setPosition(830,80)
-     .setSize(50,20)
-     .setFont(font)
-     .setColorBackground(color(255,255,255))
-     .setColor(color(0,0,0))
-     .setColorCaptionLabel(color(209, 209, 209))
-     ;
-     
-      cp5.addTextlabel("label3")
-                    .setText("Prędkośc kulki")
-                    .setPosition(720,130)
-                    .setColorValue(0)
-                    .setFont(font)
-                    ;
-     
-       cp5.addTextfield("SpeedBall")
-     .setPosition(830,130)
-     .setSize(50,20)
-     .setFont(font)
-     .setColorBackground(color(255,255,255))
-     .setColor(color(0,0,0))
-     .setColorCaptionLabel(color(209, 209, 209))
-     ;
-     
-      cp5.addButton("Start")
-     .setPosition(760,180)
-     .setSize(150,30)
-     ;
-     
-     cp5.addButton("Reset")
-     .setPosition(760,230)
-     .setSize(150,30)
-     ; 
+  //box.rotate(0.1);
+  box.update(ball.GetLocation().x, ball.GetLocation().y);
+  box.draw();
+  ball.draw();
+  ball.Move();
 }
