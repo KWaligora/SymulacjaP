@@ -28,6 +28,5 @@ void draw() {
   box.rotate(0.1);
   box.update(ball.GetLocation().x, ball.GetLocation().y);
   box.draw();
-  ball.draw();
-  ball.Move();
+  ball.Draw();
 }

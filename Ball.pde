@@ -1,28 +1,34 @@
 class Ball{
-  int Mass = 0;
-  PVector Location = new PVector(650, 435);
-  PVector Velocity = new PVector(-1,0);
+  float Mass;
+  PVector Location;
+  PVector Velocity;
   final int Radius;
   
   public Ball(int radius){
+    Location = new PVector(650, 435);
+    Velocity = new PVector(-1,0);
     this.Radius = radius;
-  }
-  
-  public void draw(){
+    Mass = 1;
+    
     fill(255);
     ellipse(Location.x, Location.y, Radius*2, Radius*2);
   }
   
-  public void Move(){
+  public void Draw(){
     Location.add(Velocity);
+    fill(255);
+    ellipse(Location.x, Location.y, Radius*2, Radius*2);
   }
  
    public PVector GetLocation(){
      return Location;
    }
    
-   public void SetSpeed(){
-     Velocity = new PVector(0,0);
+   public void SetSpeed(float speed){
+     Velocity = new PVector(-speed,0);
    }
- 
+   
+   public void SetMass(float mass){
+     Mass = mass;
+   }
 }
