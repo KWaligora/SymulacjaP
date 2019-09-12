@@ -5,17 +5,20 @@ class Box{
 
   PVector reversedTestPoint = new PVector();//allocate reversed point as vector
   PVector testPoint = new PVector();//allocate regular point as vector
-  PVector origin = new PVector();
+  PVector origin;
+  PVector Location;
 
   float w,h;//box width and height
   int radius;
   boolean isHovered;
 
-  Box(float w,float h, int radius){
+  Box(float w,float h, int radius, float x, float y){
     this.w = w;
     this.h = h;
     this.radius = radius;
     this.origin = new PVector(0-w/2, 0-h/2);
+    this.Location = new PVector(x,y);
+    this.translate();
   }
   //whenever we update the regular coordinate system, we update the reversed one too
   void updateReverseCoordinates(){
@@ -23,18 +26,15 @@ class Box{
     reverseCoordinates.invert();//simply invert it
   }
 
-  void translate(float x,float y){
-    coordinates.translate(x,y);  
+  void translate(){
+    coordinates.translate(Location.x,Location.y);  
     updateReverseCoordinates();
   }
   void rotate(float angle){
     coordinates.rotate(angle); 
     updateReverseCoordinates();
   }
-  void scale(float s){
-    coordinates.scale(s);
-    updateReverseCoordinates();
-  }
+  
   boolean isOver(float x,float y){
     reversedTestPoint.set(0,0);//reset the reverse test point
     testPoint.set(x,y);//set the x,y coordinates we want to test

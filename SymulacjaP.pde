@@ -14,8 +14,7 @@ void setup() {
   CreateFront();
   strokeWeight(2);
   ball = new Ball(radius);
-  box = new Box(widthR, heightR, radius);
-  box.translate(300, 350);
+  box = new Box(widthR, heightR, radius, 300, 350);
   box.rotate(3);
 }
 
