@@ -1,6 +1,4 @@
 class Box{
-
-  int nr=0;
   
   PMatrix2D coordinates = new PMatrix2D();//box coordinate system
   PMatrix2D reverseCoordinates = new PMatrix2D();//inverted coordinate system
@@ -9,13 +7,14 @@ class Box{
   PVector testPoint = new PVector();//allocate regular point as vector
   PVector origin = new PVector();
 
-
   float w,h;//box width and height
+  int radius;
   boolean isHovered;
 
-  Box(float w,float h){
+  Box(float w,float h, int radius){
     this.w = w;
     this.h = h;
+    this.radius = radius;
     this.origin = new PVector(0-w/2, 0-h/2);
   }
   //whenever we update the regular coordinate system, we update the reversed one too
@@ -42,11 +41,8 @@ class Box{
     //transform the passed x,y coordinates to the reversed coordinates using matrix multiplication
     reverseCoordinates.mult(testPoint,reversedTestPoint);
     //simply test the bounding box
-    return ((reversedTestPoint.x+18 >= origin.x && reversedTestPoint.x-18 <= w-w/2) && 
-            (reversedTestPoint.y+18 >= origin.y && reversedTestPoint.y-18 <= h-h/2));
-     /*println(reversedTestPoint.x, origin.x, reversedTestPoint.y,  origin.y);
-     return (abs(reversedTestPoint.x - origin.x) <= 18 && abs(reversedTestPoint.x - w-w/2) <=18 &&
-             abs(reversedTestPoint.y - origin.y) <=18 && abs(reversedTestPoint.y - h-h/2) <=18);*/
+    return ((reversedTestPoint.x+radius >= origin.x && reversedTestPoint.x-radius <= w-w/2) && 
+            (reversedTestPoint.y+radius >= origin.y && reversedTestPoint.y-radius <= h-h/2));
         
   }
   void update(float x,float y){
