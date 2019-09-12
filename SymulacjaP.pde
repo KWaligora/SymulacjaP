@@ -25,7 +25,7 @@ void draw() {
   fill(color(209, 209, 209));
   rect(720, 0, 230, height);
   stroke(0);
-  //box.rotate(0.1);
+  box.rotate(0.1);
   box.update(ball.GetLocation().x, ball.GetLocation().y);
   box.draw();
   ball.draw();

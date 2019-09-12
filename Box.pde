@@ -39,19 +39,20 @@ class Box{
   boolean isOver(float x,float y){
     reversedTestPoint.set(0,0);//reset the reverse test point
     testPoint.set(x,y);//set the x,y coordinates we want to test
-    //println(testPoint.x, testPoint.y);
     //transform the passed x,y coordinates to the reversed coordinates using matrix multiplication
     reverseCoordinates.mult(testPoint,reversedTestPoint);
     //simply test the bounding box
-    return ((reversedTestPoint.x >= origin.x && reversedTestPoint.x <= w-w/2) && 
-            (reversedTestPoint.y >= origin.y && reversedTestPoint.y <= h-h/2));
+    return ((reversedTestPoint.x+18 >= origin.x && reversedTestPoint.x-18 <= w-w/2) && 
+            (reversedTestPoint.y+18 >= origin.y && reversedTestPoint.y-18 <= h-h/2));
+     /*println(reversedTestPoint.x, origin.x, reversedTestPoint.y,  origin.y);
+     return (abs(reversedTestPoint.x - origin.x) <= 18 && abs(reversedTestPoint.x - w-w/2) <=18 &&
+             abs(reversedTestPoint.y - origin.y) <=18 && abs(reversedTestPoint.y - h-h/2) <=18);*/
+        
   }
-
   void update(float x,float y){
     isHovered = isOver(x,y);
   }
   void draw(){
-    //reverseCoordinates.print(); 
       if(isHovered) fill(127);
       else          fill(255);
     pushMatrix();
