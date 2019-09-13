@@ -14,8 +14,7 @@ void setup() {
   CreateFront();
   strokeWeight(2);
   ball = new Ball(radius);
-  box = new Box(widthR, heightR, radius, 300, 350);
-  box.rotate(3);
+  box = new Box(300, 350, widthR, heightR, radius);
 }
 
 void draw() {  
@@ -24,7 +23,6 @@ void draw() {
   fill(color(209, 209, 209));
   rect(720, 0, 230, height);
   stroke(0);
-  box.rotate(0.1);
   box.update(ball.GetLocation().x, ball.GetLocation().y);
   box.draw();
   ball.Draw();

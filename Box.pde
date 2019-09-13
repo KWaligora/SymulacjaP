@@ -6,19 +6,22 @@ class Box{
   PVector reversedTestPoint = new PVector();//allocate reversed point as vector
   PVector testPoint = new PVector();//allocate regular point as vector
   PVector origin;
+  PVector Velocity;
   PVector Location;
 
   float w,h;//box width and height
   int radius;
   boolean isHovered;
 
-  Box(float w,float h, int radius, float x, float y){
+  Box(float x, float y, float w,float h, int radius){
+    this.Location = new PVector(x,y);
     this.w = w;
     this.h = h;
     this.radius = radius;
+    this.Velocity = new PVector(1,0);
     this.origin = new PVector(0-w/2, 0-h/2);
-    this.Location = new PVector(x,y);
-    this.translate();
+    
+    this.translate(Location.x, Location.y);
   }
   //whenever we update the regular coordinate system, we update the reversed one too
   void updateReverseCoordinates(){
@@ -26,8 +29,8 @@ class Box{
     reverseCoordinates.invert();//simply invert it
   }
 
-  void translate(){
-    coordinates.translate(Location.x,Location.y);  
+  void translate(float x, float y){
+    coordinates.translate(x, y);  
     updateReverseCoordinates();
   }
   void rotate(float angle){
@@ -48,12 +51,24 @@ class Box{
   void update(float x,float y){
     isHovered = isOver(x,y);
   }
+  
+  void move(){
+    coordinates.reset();
+    Location.add(Velocity);
+    this.translate(Location.x,Location.y);
+    this.rotate(0);
+     //this.origin = new PVector(0-Location.x-w/2, 0-Location.y-h/2);
+   // this.translate(Location.x, Location.y);
+  }
+  
   void draw(){
       if(isHovered) fill(127);
       else          fill(255);
+      move();
     pushMatrix();
     applyMatrix(coordinates);
     rect(origin.x, origin.y, w, h);
     popMatrix();
+      move();
   }
 }
