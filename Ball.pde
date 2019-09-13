@@ -6,7 +6,7 @@ class Ball{
   
   public Ball(int radius){
     Location = new PVector(650, 435);
-    Velocity = new PVector(-1,0);
+    Velocity = new PVector(0,0);
     this.Radius = radius;
     Mass = 1;
     
@@ -25,7 +25,7 @@ class Ball{
    }
    
    public void SetSpeed(float speed){
-     Velocity = new PVector(-speed,0);
+     Velocity.set(-speed, 0);
    }
    
    public void SetMass(float mass){

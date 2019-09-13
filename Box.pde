@@ -12,14 +12,16 @@ class Box{
   float w,h;//box width and height
   int radius;
   boolean isHovered;
+  float Mass;
 
   Box(float x, float y, float w,float h, int radius){
     this.Location = new PVector(x,y);
     this.w = w;
     this.h = h;
     this.radius = radius;
-    this.Velocity = new PVector(1,0);
+    this.Velocity = new PVector(0,0);
     this.origin = new PVector(0-w/2, 0-h/2);
+    this.Mass = 0;
     
     this.translate(Location.x, Location.y);
   }
@@ -59,6 +61,10 @@ class Box{
     this.rotate(0);
      //this.origin = new PVector(0-Location.x-w/2, 0-Location.y-h/2);
    // this.translate(Location.x, Location.y);
+  }
+  
+  public void SetMass(float m){
+    Mass = m;
   }
   
   void draw(){
