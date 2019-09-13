@@ -61,6 +61,10 @@ class Box{
     this.Rotate(0);
   }
   
+  public float GetMass(){
+    return Mass;
+  }
+  
   public void SetMass(float m){
     Mass = m;
   }

@@ -24,8 +24,16 @@ class Ball{
      return Location;
    }
    
+   public float GetSpeed(){
+     return Velocity.x;
+   }
+   
    public void SetSpeed(float speed){
      Velocity.set(-speed, 0);
+   }
+   
+   public float GetMass(){
+     return Mass;
    }
    
    public void SetMass(float mass){
