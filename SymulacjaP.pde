@@ -3,6 +3,7 @@ import controlP5.*;
 ControlP5 cp5;
 Ball ball;
 Box box;
+Collisions collisions;
 
 int widthR = 20;
 int heightR = 300;
@@ -15,6 +16,8 @@ void setup() {
   strokeWeight(2);
   ball = new Ball(radius);
   box = new Box(300, 350, widthR, heightR, radius);
+  collisions = new Collisions(ball, box);
+  
 }
 
 void draw() {  

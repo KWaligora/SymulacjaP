@@ -59,18 +59,21 @@ class Box{
     Location.add(Velocity);
     this.Translate(Location.x,Location.y);
     this.Rotate(0);
-     //this.origin = new PVector(0-Location.x-w/2, 0-Location.y-h/2);
-   // this.translate(Location.x, Location.y);
   }
   
   public void SetMass(float m){
     Mass = m;
   }
   
+  public boolean GetIsHovered(){
+    return IsHovered;
+  }
+  
+ public void OnCollision(){
+   }
+  
   void Draw(){
-      if(IsHovered) fill(127);
-      else          fill(255);
-      Move();
+    Move();
     pushMatrix();
     applyMatrix(Coordinates);
     rect(Origin.x, Origin.y, w, h);

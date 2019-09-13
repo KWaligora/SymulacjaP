@@ -31,4 +31,7 @@ class Ball{
    public void SetMass(float mass){
      Mass = mass;
    }
+   
+   public void OnCollision(){
+   }
 }
