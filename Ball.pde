@@ -15,6 +15,7 @@ class Ball{
   }
   
   public void Draw(){
+    if(Location.x>=720 - Radius || Location.x<=0 + Radius) Velocity.x = -Velocity.x;
     Location.add(Velocity);
     fill(255);
     ellipse(Location.x, Location.y, Radius*2, Radius*2);
@@ -40,6 +41,9 @@ class Ball{
      Mass = mass;
    }
    
-   public void OnCollision(){
+   public void OnCollision(float MassBox){
+     float speed = -Velocity.x*(4*Mass-MassBox)/(4*Mass+MassBox);
+     println(speed);
+     SetSpeed(speed);
    }
 }

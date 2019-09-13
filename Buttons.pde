@@ -7,4 +7,5 @@ public void Start(){
 public void Reset(){
   ball = new Ball(radius);
   box = new Box(300, 350, widthR, heightR, radius);
+  collisions = new Collisions(ball, box);
 }

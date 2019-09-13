@@ -56,6 +56,7 @@ class Box{
   
   void Move(){
     Coordinates.reset();
+    if(Location.x >= 720 || Location.x <= 0 ) Velocity.x = -Velocity.x;
     Location.add(Velocity);
     this.Translate(Location.x,Location.y);
     this.Rotate(0);
@@ -73,13 +74,16 @@ class Box{
     return IsHovered;
   }
   
- public void OnCollision(){
+ public void OnCollision(float SpeedBall, float MassBall){
+     float speed = SpeedBall*2*MassBall/(4*MassBall+Mass);
+     Velocity.set(speed,0);
    }
   
   void Draw(){
     Move();
     pushMatrix();
     applyMatrix(Coordinates);
+    fill(255);
     rect(Origin.x, Origin.y, w, h);
     popMatrix();
   }

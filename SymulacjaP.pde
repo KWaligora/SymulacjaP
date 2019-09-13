@@ -27,6 +27,7 @@ void draw() {
   rect(720, 0, 230, height);
   stroke(0);
   box.Update(ball.GetLocation().x, ball.GetLocation().y);
+  collisions.Check();
   box.Draw();
-  ball.Draw();
+  ball.Draw();  
 }
