@@ -5,7 +5,7 @@ class Ball{
   final int Radius;
   
   public Ball(int radius){
-    Location = new PVector(650, 435);
+    Location = new PVector(650, 480);
     Velocity = new PVector(0,0);
     this.Radius = radius;
     Mass = 1;

@@ -22,6 +22,7 @@ class Box{
     this.Velocity = new PVector(0,0);
     this.Origin = new PVector(0-w/2, 0-h/2);
     this.Mass = 0;
+    this.IsHovered = false;
     
     this.Translate(Location.x, Location.y);
   }

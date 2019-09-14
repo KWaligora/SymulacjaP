@@ -12,8 +12,8 @@ class Collisions{
   void Check(){
     if(box.GetIsHovered() && !flag){
       flag = true;
-      box.OnCollision(ball.GetSpeed(), ball.GetMass());
       ball.OnCollision(box.GetMass());
+      box.OnCollision(ball.GetSpeed(), ball.GetMass());
     }
   }
 }
