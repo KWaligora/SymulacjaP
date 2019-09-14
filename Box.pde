@@ -13,6 +13,8 @@ class Box{
   int Radius;
   boolean IsHovered;
   float Mass;
+  float RotationSpeed;
+  float Rotation;
 
   Box(float x, float y, float w,float h, int Radius){
     this.Location = new PVector(x,y);
@@ -22,6 +24,8 @@ class Box{
     this.Velocity = new PVector(0,0);
     this.Origin = new PVector(0-w/2, 0-h/2);
     this.Mass = 0;
+    this.RotationSpeed = 0;
+    this.Rotation = 0;
     this.IsHovered = false;
     
     this.Translate(Location.x, Location.y);
@@ -59,8 +63,9 @@ class Box{
     Coordinates.reset();
     if(Location.x >= 720 || Location.x <= 0 ) Velocity.x = -Velocity.x;
     Location.add(Velocity);
+    Rotation+=RotationSpeed;
     this.Translate(Location.x,Location.y);
-    this.Rotate(0);
+    this.Rotate(radians(-Rotation));
   }
   
   public float GetMass(){
@@ -78,6 +83,8 @@ class Box{
  public void OnCollision(float SpeedBall, float MassBall){
      float speed = SpeedBall*2*MassBall/(4*MassBall+Mass);
      Velocity.set(speed,0);
+      RotationSpeed = (6/(h/100)) * ((2 * MassBall)/(4*MassBall+Mass))*SpeedBall;
+      Rotation = RotationSpeed;
    }
   
   void Draw(){

@@ -43,7 +43,6 @@ class Ball{
    
    public void OnCollision(float MassBox){
      float speed = -Velocity.x*(4*Mass-MassBox)/(4*Mass+MassBox);
-     println(speed);
      SetSpeed(speed);
    }
 }
