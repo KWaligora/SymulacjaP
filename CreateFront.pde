@@ -57,4 +57,11 @@ public void CreateFront(){
      .setPosition(760,230)
      .setSize(150,30)
      ; 
+     
+     cp5.addTextlabel("label4")
+                    .setText("Kamil Waligóra 2019")
+                    .setPosition(780,720)
+                    .setColorValue(0)
+                    .setFont(font)
+                    ;
 }

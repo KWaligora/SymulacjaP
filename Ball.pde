@@ -15,7 +15,7 @@ class Ball{
   }
   
   public void Draw(){
-    if(Location.x>=720 - Radius || Location.x<=0 + Radius) Velocity.x = -Velocity.x;
+    if(Location.x>=720 - Radius || Location.x<=0 + Radius) Velocity.x = 0;
     Location.add(Velocity);
     fill(255);
     ellipse(Location.x, Location.y, Radius*2, Radius*2);
